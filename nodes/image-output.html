@@ -1,0 +1,38 @@
+<script type="text/javascript">
+  RED.nodes.registerType('image-output', {
+    category: 'output',
+    color: '#a6bbcf',
+    defaults: {
+      name: { value: "" }
+    },
+    inputs: 1,
+    outputs: 0,
+    icon: "watch.png",
+    align: 'right',
+    label: function () {
+      return this.name || "Image output";
+    }
+  });
+
+  const initialized = {}
+
+  RED.comms.subscribe('image', (event, data) => {
+    if(!initialized[data.id]) {
+      const $container = document.getElementById(data.id)
+      const img = document.createElementNS("http://www.w3.org/2000/svg", 'image')
+      img.setAttribute('width', `200`)
+      img.setAttribute('y', `40`)
+      $container.insertBefore(img, $container.lastChild.nextSibling)
+      initialized[data.id] = img
+    }
+    const $img = initialized[data.id]
+    $img.setAttribute('href', `data:image/png;base64,${data.data}`)
+  })
+
+</script>
+
+<script type="text/x-red" data-template-name="image-output">
+</script>
+
+<script type="text/x-red" data-help-name="image-output">
+</script>
