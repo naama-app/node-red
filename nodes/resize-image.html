@@ -1,0 +1,23 @@
+<script type="text/javascript">
+  RED.nodes.registerType('resize-image', {
+    category: 'function',
+    color: '#a6bbcf',
+    defaults: {
+      name: { value: "" }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "watch.png",
+    align: 'left',
+    label: function () {
+      return this.name || "Resize image";
+    }
+  });
+
+</script>
+
+<script type="text/x-red" data-template-name="resize-image">
+</script>
+
+<script type="text/x-red" data-help-name="resize-image">
+</script>
