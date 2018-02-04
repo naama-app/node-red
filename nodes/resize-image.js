@@ -7,6 +7,11 @@ module.exports = function(RED) {
     var node = this;
 
     node.on("input", function(msg) {
+      if (!msg.crop) {
+        this.send(msg);
+        return;
+      }
+
       const { x, y, w, h } = msg.crop;
 
       jimp
