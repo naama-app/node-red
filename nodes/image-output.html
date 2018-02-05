@@ -26,6 +26,7 @@
       }
 
       const img = document.createElementNS("http://www.w3.org/2000/svg", 'image')
+      img.setAttribute('id', `image-output-${id}`)
       img.setAttribute('width', `200`)
       img.setAttribute('y', `40`)
       $container.insertBefore(img, $container.lastChild.nextSibling)
