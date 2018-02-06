@@ -5,7 +5,12 @@ A wrapper for deploying [Node-RED](http://nodered.org) into the [Heroku](https:/
 
 ### Deploying Node-RED into Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/joeartsea/node-red-heroku)
+```
+git clone git@github.com:naama-app/node-red.git
+cd node-red
+heroku create [NAME]
+git push heroku master
+```
 
 ### Password protect the flow editor
 
